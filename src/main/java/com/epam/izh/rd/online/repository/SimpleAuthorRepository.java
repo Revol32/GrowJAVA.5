@@ -8,11 +8,11 @@ public class SimpleAuthorRepository implements AuthorRepository {
 
     @Override
     public boolean save(Author author) {
-        if (findByFullName(author.getName(),author.getLastName())!=null){
+        if (findByFullName(author.getName(), author.getLastName()) != null) {
             return false;
         }
-        Author[] bufer = new Author[count()+1];
-        System.arraycopy(authors,0,bufer,0,count());
+        Author[] bufer = new Author[count() + 1];
+        System.arraycopy(authors, 0, bufer, 0, count());
         bufer[count()] = author;
         this.authors = bufer;
         return true;
@@ -20,8 +20,8 @@ public class SimpleAuthorRepository implements AuthorRepository {
 
     @Override
     public Author findByFullName(String name, String lastname) {
-        for (Author author: this.authors){
-            if (author.getName().equals(name)&&author.getLastName().equals(lastname)){
+        for (Author author : this.authors) {
+            if (author.getName().equals(name) && author.getLastName().equals(lastname)) {
                 return author;
             }
         }
@@ -30,11 +30,11 @@ public class SimpleAuthorRepository implements AuthorRepository {
 
     @Override
     public boolean remove(Author author) {
-        for (int i = 0;i<count();i++){
-            if (authors[i].getName().equals(author.getName()) && authors[i].getLastName().equals(author.getLastName())){
-                Author[] bufer = new Author[count()-1];
-                System.arraycopy(authors,0,bufer,0,i);
-                System.arraycopy(authors,i+1,bufer,i,count()-i-1);
+        for (int i = 0; i < count(); i++) {
+            if (authors[i].getName().equals(author.getName()) && authors[i].getLastName().equals(author.getLastName())) {
+                Author[] bufer = new Author[count() - 1];
+                System.arraycopy(authors, 0, bufer, 0, i);
+                System.arraycopy(authors, i + 1, bufer, i, count() - i - 1);
                 this.authors = bufer;
                 return true;
             }

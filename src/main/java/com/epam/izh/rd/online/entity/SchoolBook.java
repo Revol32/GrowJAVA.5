@@ -5,7 +5,7 @@ import java.util.Objects;
 
 /**
  * Сущность учебника. Он должен быть унаследован от сущности Book
- *
+ * <p>
  * Необходимо:
  * 1) Унаследовать данный класс от класса Book
  * 2) Создать список полей с указанными типами ровно в этом порядке:
@@ -26,7 +26,7 @@ public class SchoolBook extends Book {
 
 
     public SchoolBook() {
-      super();
+        super();
     }
 
     public SchoolBook(int numberOfPages, String name, String authorName, String authorLastName, LocalDate publishDate) {
